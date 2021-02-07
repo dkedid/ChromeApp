@@ -4,16 +4,30 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
+const toDos = [];
+
+/* paintToDo에서 생성한 li들을 Local Storage에 저장하는 함수*/
+function saveToDos(){
+    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+}
+
 function paintToDo(text) {
     const li = document.createElement("li");
     const delBtn = document.createElement("button"); 
     delBtn.innerHTML = "🗑️";
     const span = document.createElement("span");
+    const newId = toDos.length + 1;
     span.innerText = `오늘 할 일은 ${text}입니다. `;
     li.appendChild(span);
     li.appendChild(delBtn);
+    li.id = newId;
     toDoList.appendChild(li);
-
+    const toDoObj = {
+        text: text,
+        id: toDos.length + 1
+    }
+    toDos.push(toDoObj);
+    saveToDos();
 }
 
 function handleSubmit(event) {
@@ -28,14 +42,18 @@ function handleSubmit(event) {
 
 
 function loadToDos() {
-    const toDos = localStorage.getItem(TODOS_LS);
-    if (toDos === null) {
-        toDoForm.addEventListener("submit", handleSubmit)
+    const loadedToDos = localStorage.getItem(TODOS_LS);
+    if (loadedToDos !== null) {
+        const parsedToDos = JSON.parse(loadedToDos);
+        parsedToDos.forEach(function(toDo) {
+        paintToDo(toDo.text);
+        });
     }
 }
 
 function init() {
     loadToDos();
+    toDoForm.addEventListener("submit", handleSubmit);
 }
 
 init();

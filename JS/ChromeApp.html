@@ -2,25 +2,98 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS#1</title>
 </head>
 
 
 
-<body>
-    <div class="main-box">
-        <div class="js-clock">
-            <div class="js-time-now"></div>
+<body class="body-box">
+    <div class="patch">        
+        <div class = "header">
+            <span>Pengscord</span>
         </div>
+        <div class="menu-box">
+            <ul class="menu-box__menu-box">
+                <a class="menu__a-box" href="#">
+                    <li>
+                        <img class="menu-box__img menu-box__menu-box__now" src="https://yt3.ggpht.com/ytc/AAUvwngytTGNxTh-n4C6TLomue6cb2bYni4XMnzG1m0mOA=s900-c-k-c0x00ffffff-no-rj">
+                    </li>
+                </a>
+
+                <div class="border-line"></div>
+
+                <a class="menu__a-box" href="#">
+                    <li>
+                        <img class="menu-box__img" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/10660119_538318523006555_1971549971222895643_n.jpg?_nc_cat=111&ccb=2&_nc_sid=2d5d41&_nc_ohc=VWi6jtZv2joAX9Z0GFl&_nc_ht=scontent-ssn1-1.xx&oh=fc59bca8fd009a45c82e3afef50629bf&oe=604636E0">
+                    </li>
+                    <div class="menu-box__text">menu</div>
+                </a>
+
+                <a class="menu__a-box" href="#">
+                    <li>
+                        <img class="menu-box__img" src="https://image.bugsm.co.kr/album/images/350/200268/20026817.jpg">
+                    </li>
+                    <div class="menu-box__text">menu</div>
+                </a>
+
+                <a class="menu__a-box" href="#">
+                    <li>
+                        <img class="menu-box__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YejqK4uZYQJHUubqUsFUktY4_EOAZmpVBw&usqp=CAU">
+                    </li>
+                    <div class="menu-box__text">menu</div>
+                </a>
+
+                <a class="menu__a-box" href="#">
+                    <li>
+                        <img class="menu-box__img" src="https://c-sf.smule.com/rs-s34/arr/a4/b8/f2d0d748-5e5f-4893-96d3-011d76be5af5_1024.jpg">
+                    </li>
+                    <div class="menu-box__text">menu</div>
+                </a>
+            </ul>
+            <div class="submenu">
+                <div class="submenu-box">
+                    <div class="submenu-box__title">
+                        <div>Welcome</div><i class="fas fa-chevron-down fa-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body-header">
+                <a href="#">
+                    <div class="clock-box">
+                        <div class="js-clock">
+                            <div class="js-time-now"></div>
+                        </div>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <div class="JS-main-box">
         <form class="js-form form">
             <input class="js-input" type="text" placeholder="What is your name?">
         </form>
-        <h4 class="js-greetings greetings">21</h4>
+        <h4 class="js-greetings greetings"></h4>
 
         <form class="js-toDoForm">
-            <input type="text" placeholder="Write a to do">
+            <input class="js-todo" type="text" placeholder="Write a to do">
         </form>
         <ul class="js-toDoList">
 
