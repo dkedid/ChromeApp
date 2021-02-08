@@ -4,7 +4,31 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
-const toDos = [];
+let toDos = [];
+
+function filterFn(toDo) {
+    return toDo.id === 1;
+
+}
+
+function deleteToDo(event) {
+    /* 누른 버튼 확인 */
+    const btn = event.target;
+    /* 누른 버튼에 대한 부모 확인(∵부모에 id를 부여) */
+    const li = btn.parentNode;
+    /*해당 버튼 삭제*/
+    toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function(toDo){
+         return toDo.id !== parseInt(li.id);
+    });
+    
+    console.log(cleanToDos, toDos);
+    toDos = cleanToDos;
+    saveToDos();
+}
+
+
+
 
 /* paintToDo에서 생성한 li들을 Local Storage에 저장하는 함수*/
 function saveToDos(){
@@ -15,6 +39,7 @@ function paintToDo(text) {
     const li = document.createElement("li");
     const delBtn = document.createElement("button"); 
     delBtn.innerHTML = "🗑️";
+    delBtn.addEventListener("click", deleteToDo); 
     const span = document.createElement("span");
     const newId = toDos.length + 1;
     span.innerText = `오늘 할 일은 ${text}입니다. `;
