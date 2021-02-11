@@ -29,36 +29,38 @@
                     <li>
                         <img class="menu-box__img" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/10660119_538318523006555_1971549971222895643_n.jpg?_nc_cat=111&ccb=2&_nc_sid=2d5d41&_nc_ohc=VWi6jtZv2joAX9Z0GFl&_nc_ht=scontent-ssn1-1.xx&oh=fc59bca8fd009a45c82e3afef50629bf&oe=604636E0">
                     </li>
-                    <div class="menu-box__text">menu</div>
+                    <div class="menu-box__text">To-do</div>
                 </a>
 
                 <a class="menu__a-box" href="#">
                     <li>
                         <img class="menu-box__img" src="https://image.bugsm.co.kr/album/images/350/200268/20026817.jpg">
                     </li>
-                    <div class="menu-box__text">menu</div>
+                    <div class="menu-box__text">Weather</div>
                 </a>
 
                 <a class="menu__a-box" href="#">
                     <li>
-                        <img class="menu-box__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YejqK4uZYQJHUubqUsFUktY4_EOAZmpVBw&usqp=CAU">
+                        <img class="menu-box__img" src="data/8.jpg">
                     </li>
-                    <div class="menu-box__text">menu</div>
+                    <div class="menu-box__text">menu3</div>
                 </a>
 
                 <a class="menu__a-box" href="#">
                     <li>
                         <img class="menu-box__img" src="https://c-sf.smule.com/rs-s34/arr/a4/b8/f2d0d748-5e5f-4893-96d3-011d76be5af5_1024.jpg">
                     </li>
-                    <div class="menu-box__text">menu</div>
+                    <div class="menu-box__text">menu4</div>
                 </a>
             </ul>
             <div class="submenu">
                 <div class="submenu-box">
                     <div class="submenu-box__title">
-                        <div>Welcome</div><i class="fas fa-chevron-down fa-sm"></i>
+                        <div>📖 To Do List ! !</div><a id = toDoAnchor href="#"><i class="fas fa-chevron-down fa-sm"></i></a>
                     </div>
                 </div>
+                <ul class="js-toDoList">
+                </ul>
             </div>
 
             <div class="body-header">
@@ -95,9 +97,7 @@
             <form class="js-toDoForm">
                 <input class="js-todo" type="text" placeholder="Write a to do">
             </form>
-            <ul class="js-toDoList">
 
-            </ul>
 
             <script src="clock.js"></script>
             <script src="greeting.js"></script>
@@ -106,7 +106,17 @@
 
         <div class="img-box">
             <script src="bg.js"></script>
-            <div class="js-weather">날씨 박스</div>
+            <div class="js-weather">
+                <div class="weather-title">⛅ Weather information</div>
+                <div class="weather-content">
+                    <div class="js-weather__location">
+                        🧭 : 로딩중...
+                    </div>
+                    <div class="js-weather__temp">
+                        🌡️ : 로딩중...
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="weather.js"></script>

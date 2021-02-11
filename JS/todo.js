@@ -1,15 +1,28 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
     toDoInput = toDoForm.querySelector("input"),
-    toDoList = document.querySelector(".js-toDoList");
+    toDoList = document.querySelector(".js-toDoList"),
+    toDoAnchor = document.querySelector("#toDoAnchor");
 
 const TODOS_LS = 'toDos';
+
+
+/*To Do Anchor*/
+function inOut(){
+    //continue
+}
+
+toDoAnchor.addEventListener("clicked", inOut);
+
+
+
 
 let toDos = [];
 
 function filterFn(toDo) {
     return toDo.id === 1;
-
 }
+
+
 
 function deleteToDo(event) {
     /* 누른 버튼 확인 */
@@ -42,7 +55,7 @@ function paintToDo(text) {
     delBtn.addEventListener("click", deleteToDo); 
     const span = document.createElement("span");
     const newId = toDos.length + 1;
-    span.innerText = `오늘 할 일은 ${text}입니다. `;
+    span.innerText = `${text}`;
     li.appendChild(span);
     li.appendChild(delBtn);
     li.id = newId;
