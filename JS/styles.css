@@ -5,6 +5,11 @@
 @import "default.css";
 @import "D-day.css";
 
+
 /* Var */
 @import "variables.css";
 @import "reset.css";
+
+/* Effects */
+@import "snow.css";
+@import "toggle.css";

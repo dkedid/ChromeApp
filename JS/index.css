@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: var(--submenu-colo);
+    background-color: var(--submenu-color);
     margin: 20px 10px;
     padding: 10px 5px;
     background-color: rgba(1,1,1,0.2);
@@ -17,7 +17,6 @@
     border-bottom: 2px solid rgba(0,0,0,0.2);
     padding: 10px 20px;
     font-size: 25px;
-    color: teal;
 }
 
 .js-name-form__input:focus {
@@ -39,15 +38,34 @@
     box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
 }
 
+.js-toDoForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .js-form {
     margin-bottom: 20px;
 }
 
+.todo-border {
+    border-top: 2px solid rgba(0,0,0,0.35);
+    width: 130px;
+    margin-left: 11.25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
 .js-todo{
     padding: 10px 20px;
+    margin: 10px;
+    width: 137px;
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 1px 2px rgb(228, 123, 141);
+    background-color: white;
 
 }
 
@@ -57,7 +75,7 @@
 
 
 .js-greetings {
-    margin-bottom: 20px;
     font-size: 30px;
     font-weight: 600;
+    padding: 5px 10px;
 }

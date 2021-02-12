@@ -1,17 +1,13 @@
-import "./styles.css";
-
-// You're gonna need this
-const text = document.querySelector(".text");
+const text = document.querySelector(".blossom-time");
 function getTime() {
-  // Don't delete this.
-  const xmasDay = new Date("2021-12-24:00:00:00+0900");
+  const BlossomDay = new Date("2021-04-01:00:00:00+0900");
   let now = new Date();
 
-  let month = xmasDay.getMonth() - now.getMonth();
-  let day = xmasDay.getDay() - now.getDay();
-  let hours = xmasDay.getHours() - now.getHours();
-  let minutes = xmasDay.getMinutes() - now.getMinutes();
-  let seconds = xmasDay.getSeconds() - now.getSeconds();
+  let month = BlossomDay.getMonth() - now.getMonth();
+  let day = BlossomDay.getDay() - now.getDay();
+  let hours = BlossomDay.getHours() - now.getHours();
+  let minutes = BlossomDay.getMinutes() - now.getMinutes();
+  let seconds = BlossomDay.getSeconds() - now.getSeconds();
 
   if (seconds < 0) {
     minutes -= 1;

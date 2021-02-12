@@ -1,6 +1,8 @@
 .body-box {
+    height: 100vh;
     background-color: var(--mainbox-color);
-    color: white;
+    color: rgba(0,0,0,0.7);
+    font-weight: 600;
     height: 100%;
     font-size: 600;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -11,15 +13,22 @@
     flex-direction: column;
 }
 
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .header {
     padding-top: 5px;
     padding-left: 5px;
-    background-color: var(--menu-color);
+    background: linear-gradient(30deg, #ffdab9, #FFB7C5);
     display: flex;
     width: 100%;
     height: 17px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(0,0,0, 0.5);
+    font-weight: 600;
     position: fixed;
     top: 0px;
     left:0px;
@@ -30,7 +39,7 @@
 .menu-box {
     display: flex;
     flex-direction: column;
-    background-color: var(--menu-color);
+    background: linear-gradient(30deg,  #FFB7C5, #ffdab9);
     height: 100vh;
     width: 110px;
     position: fixed;
@@ -48,11 +57,10 @@
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    opacity: 0.5;
+    opacity: 0.7;
     transition: ease-in-out 0.15s;
     
 }
-
 
 .menu-box__img:hover {
     opacity: 1;
@@ -79,14 +87,15 @@
     top: 22px;
     width: 200px;
     height: 100%;
-    background-color: var(--submenu-color);
+    background-color: bisque;
     border-top-left-radius: 15px;
     overflow: auto;
     margin-bottom: 120px;
+    z-index: 0;
 }
 
 .border-line {
-    border-top: 2px solid rgba(255,255,255,0.2);
+    border-top: 2px solid rgba(0,0,0,0.35);
     width: 40px;
     margin-left: 11.25px;
     margin-top: 5px;
@@ -108,30 +117,31 @@
     background-color: rgba(255,255,255,0.1);
 }
 .submenu-box__title i {
-    color: rgba(255,255,255,0.6);
+    color: rgba(0,0,0,0.6);
 }
 
 .body-header {
-    padding:10px 15px;
+    padding:9px 15px;
     font-weight: 600;
     display: flex;
     align-items: center;
     position: fixed;
     width:100%;
     left: 285px;
-    background-color: var(--mainbox-color);
-    box-shadow: 1px 0px 2px rgba(0,0,0,0.7);
+    background: bisque;
+    border-bottom: 1px solid rgba(0,0,0,0.7);
 }
 
 .clock-box {
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(255,255,255,0.6);
+    border: solid 1px black;
     padding: 5px 10px;
     border-radius: 5px;
     display: flex;
 }
 
 .clock-box:hover, .clock-box:focus{
-    background-color: var(--menu-color);
+    background-color: rgba(0,0,0,0.4);
     
 }
 
@@ -211,9 +221,16 @@
     padding: 10px;
     background: linear-gradient(30deg, pink, #ffdab9);
     border-radius: 5px;
-    width: 60%;
+    width: 600px;
+    height: 250px;
 }
 
+
+.img-box__img{
+    width: 45%;
+    border-radius: 10px;
+    animation: fadeIn 1s linear;
+}
 
 @keyframes fadeIn {
     0%{
@@ -227,12 +244,6 @@
 
 
 
-.img-box__img{
-    width: 35%;
-    border-radius: 10px;
-    animation: fadeIn 1s linear;
-}
-
 
 .js-toDoList {
     display: flex;
@@ -240,7 +251,8 @@
 }
 
 .js-toDoList li {
-    background-color: rgba(255,255,255,0.2);
+    background-color: white;
+    border: solid 2px black;
     padding: 3px;
     text-align: center;
     border-radius: 5px;
@@ -248,6 +260,10 @@
     flex-direction: column;
     align-items: center;
     margin: 5px 10px;
+}
+
+.js-toDoList li:first-child{
+    margin-top: 10px;
 }
 
 .js-toDoList li:last-child{
@@ -270,7 +286,7 @@
     background-color: rgba(255,255,255,0.4);
     border-radius: 10px;
     padding: 10px;
-    width: 60%;
+    width: 50%;
     color: black;
     font-size: 18px;
     font-weight: 600;
@@ -279,9 +295,13 @@
 
 
 .js-weather div{
-    margin: 5px 0px;
+    margin: 5px;
 }
 
+.js-weather div:hover {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
 
 .weather-title{
     font-size: 25px;
@@ -301,6 +321,20 @@
     justify-content: center;
 }
 
-.weather-content div {
-    text-align: center;
+
+/* music-box*/
+
+.music-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(111,111,111,0.3);
+    margin: 0px 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.music-content {   
+    border-radius: 10px;
+    box-shadow: none;
 }
