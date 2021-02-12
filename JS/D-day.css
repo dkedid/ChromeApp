@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .content-box {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background: linear-gradient(20deg, pink, #ffdab9);
+    border-radius: 5px;
+  }
+  
+  .title {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+    margin: 10px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px;
+    color: white;
+    text-align: center;
+  }
+  
+  .text {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
