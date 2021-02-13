@@ -2,6 +2,7 @@
   height: 100vh;
   background: linear-gradient( 10deg, #FFB7C5 10% ,#F5FFD9 ,#F5FFD9 , pink 100%);
   overflow: hidden;
+  overflow: auto;
 }
 
 .snow {
