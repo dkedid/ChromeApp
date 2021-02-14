@@ -1,6 +1,6 @@
 .body-box {
   height: 100vh;
-  background: linear-gradient( 10deg, #FFB7C5 10% ,#F5FFD9 ,#F5FFD9 , pink 100%);
+  background: #F5FFD9;
   overflow: hidden;
   overflow: auto;
 }

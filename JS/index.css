@@ -1,11 +1,12 @@
 .JS-main-box {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     background-color: var(--submenu-color);
     margin: 20px 10px;
     padding: 10px 5px;
+    padding-top: 10px;
     background-color: rgba(1,1,1,0.2);
     border-radius: 15px;
 }
@@ -46,7 +47,7 @@
 }
 
 .js-form {
-    margin-bottom: 20px;
+    margin: 5px 10px;
 }
 
 .todo-border {
@@ -75,7 +76,7 @@
 
 
 .js-greetings {
-    font-size: 30px;
+    font-size: 15px;
     font-weight: 600;
     padding: 5px 10px;
 }
