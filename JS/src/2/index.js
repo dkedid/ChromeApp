@@ -71,7 +71,7 @@ function paintPending(submitValue){
     /* Object화 해서 저장. */
     const pendingObj = {
         text: submitValue,
-        id: pendingList + 1
+        id: pendingList.length + 1
     }
 
     /* pendingList에 Object를 push하고 그것을 저장. */
@@ -86,20 +86,53 @@ function savePendings(){
 
 
 
+
+
 /* 36, 41번째 줄에 들어가는 finishFunc, delFunc구현 */
 function finishFunc(event){
     const targetBtn = event.target;
     const targetLi = targetBtn.parentNode;
     pendingUl.removeChild(targetLi);
 
-    const finishedId = finishedList.length + 1;
-    finishedUl.appendChild(targetLi);
-    console.log(targetLi, targetLi.childNode, finishedId);
+    /* pending_LS 업데이트 */
+    const cleanPendings = pendingList.filter(function(pending){
+        return pending.id !== parseInt(targetLi.id);
+    });
+    pendingList = cleanPendings;
+    savePendings();
 
-    
+    saveFinished();
+    paintFinished(targetBtn.parentNode.firstChild.innerText);
+}
+
+
+
+
+function paintFinished(text) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+
+    const backBtn = document.createElement("button"); 
+    backBtn.innerText = "↩️"
+    backBtn.addEventListener("click", backfunc);
+
+    const delBtn = document.createElement("button");
+    delBtn.innerText = "🗑️"
+    delBtn.addEventListener("click", delFinished);
+
+    const finishedId = finishedList.length + 1;
+
+    span.innerText = `${text}`;
+
+    li.appendChild(span);
+    li.appendChild(backBtn);
+    li.appendChild(delBtn);
+    li.id = finishedId;
+    finishedUl.appendChild(li);
+
     const finishedObj = {
-        text: 'test' /* span 어떻게 따올지 생각해보기 */,
-        id: finishedList + 1
+        text: text,
+        id: finishedList.length + 1
     }
 
     /* finishedList에 Object를 push하고 그것을 저장. */
@@ -107,6 +140,17 @@ function finishFunc(event){
     saveFinished();
 }
 
+function delFinished(event){
+    const targetBtn = event.target;
+    const targetLi = targetBtn.parentNode;
+    finishedUl.removeChild(targetLi);
+    
+    const cleanFinished = finishedList.filter(function(finished){
+        return finished.id !== parseInt(targetLi.id);
+    });
+    finishedList = cleanFinished;
+    saveFinished();   
+}
 
 
 
@@ -116,8 +160,20 @@ function saveFinished(){
 }
 
 
+function backfunc(event){
+    const targetBtn = event.target;
+    const targetLi = targetBtn.parentNode;
+    finishedUl.removeChild(targetLi);
 
+    const cleanFinished = finishedList.filter(function(finished){
+        return finished.id !== parseInt(targetLi.id);
+    });
+    finishedList = cleanFinished;
+    saveFinished();   
 
+    savePendings();
+    paintPending(targetBtn.parentNode.firstChild.innerText);
+}
 
 
 
@@ -137,4 +193,40 @@ function PendDelFunc(event){
     savePendings();
 }
 
+
+
+
+
+
 /* finished -> pending 롤백 버튼 pending -> finished 뒤집기만 하면 될 듯 , finished del 버튼 */
+
+function loadPending() {
+    const loadedPending = localStorage.getItem(PENDING_LS);
+    if (loadedPending !== null) {
+        const parsedPendings = JSON.parse(loadedPending);
+        parsedPendings.forEach(function(pending) {
+            paintPending(pending.text);
+        });
+    }
+}
+
+function loadFinished() {
+    const loadedFinished = localStorage.getItem(FINISHED_LS);
+    if (loadedFinished !== null) {
+        const parsedFinished = JSON.parse(loadedFinished);
+        parsedFinished.forEach(function(finished) {
+            paintFinished(finished.text);
+        });
+    }
+}
+
+
+
+
+function init(){
+    loadPending();
+    loadFinished();
+    form.addEventListener("submit", handleData);
+}
+
+init();
