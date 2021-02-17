@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Number Game</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h1>Random Number Game</h1>
+    <h6 class="title-text">Generate a number between 0 and 100.</h6>
+    <form class="form-range">
+      <input class="range" type="range" value = "100" min="1" max="200" />
+    </form>
+
+    <form class="form-guess">
+        <input class="guessInput" type="text">
+        <input class="guessSubmit" type="submit">
+    </form>
+
+    <div class="result"></div>
+    <h6 class="result-WL"></h6>
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
+<!--
+1) input range로 0~ n 범위 설정.
+2) Guess input text창에 정답 쓰고 submit으로 제출.
+3) 숫자 고르고 submit하면 플레이 안되게.
+4) realtime으로 하기.
+5) 같으면 win 다르면 loose.
+
+-->
