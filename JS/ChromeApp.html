@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS#1</title>
+    <title>Pengscord</title>
+    <link rel="shortcut icon" href="data/4.jpg">
 </head>
 
 
@@ -25,11 +26,11 @@
 
                 <div class="border-line"></div>
 
-                <a class="menu__a-box" href="#">
+                <a class="menu__a-box todo-anchor" href="#">
                     <li>
                         <img class="menu-box__img" src="https://image.bugsm.co.kr/album/images/350/200268/20026817.jpg">
                     </li>
-                    <div class="menu-box__text">To-do</div>
+                    <div class="menu-box__text">Done</div>
                 </a>
 
                 <a class="menu__a-box" href="#">
@@ -52,12 +53,30 @@
                     <div class="submenu-box__title">
                         <div>📖 To Do List ! !</div><a id = toDoAnchor href="#"><i class="fas fa-chevron-down fa-sm"></i></a>
                     </div>
-                    
-                    <form class="js-toDoForm">
-                        <input class="js-todo" type="text" placeholder="Write a to do">
-                        <div class="todo-border"> </div>
-                    </form>
-                    
+                    <div class="toggle-box">
+                        <div class="todo-list">
+                            <div class="title">
+                                <form class="todo-form">
+                                    <input class="js-todo" type="text" placeholder="Add task">
+                                    <div class="todo-border"> </div>
+                                </form>
+                            </div>
+                            <div class="todo-ul-box">
+                                <h1>📚 To Do 📚</h1>
+                                <ul class="Pending-ul"></ul>
+                            </div>
+                        </div>
+
+                        <div class="done-toggle">
+                            <div class="title">
+                            </div>
+                            <div class="todo-ul-box">
+                                <h1 class="done-margin">🥂 Done 🥂</h1>
+                                <ul class="finished-ul"></ul>
+                            </div>
+                        </div>
+
+                    </div>  
                 </div>
                 <ul class="js-toDoList">
                 </ul>
@@ -66,12 +85,13 @@
 
             <!-- Name-box -->
             <div class="name-box">
-                <div>
+                <div class = "name-toggle-box">
                     <img class="name-box__img" src="data/data2/img.JPG">
                     <div class="name-box__online">
                         <div class="dot"> </div>
                     </div>
                 </div>
+                <div class="name-box_patch"></div>
                 <h4 class="js-greetings greetings"></h4>
             </div> 
 
@@ -112,39 +132,38 @@
             <script src="greeting.js"></script>
             <script src="todo.js"></script>
         </div>
-        
-        <div class="music-box">
-            <audio class="bgm-content" controls loop autoplay width="100" height="50" src="data/bgm/Fallen in LoveOnly With You.mp3">Music Error!</audio>
-            <iframe class = "music-content" width="450" height="250" src="https://www.youtube.com/embed/dinia_m0HGE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <div class="big-box">
+            <div class="music-box">
+                <audio class="bgm-content" controls loop autoplay width="100" height="50" src="data/bgm/Fallen in LoveOnly With You.mp3">Music Error!</audio>
+                <iframe class = "music-content" width="450" height="250" src="https://www.youtube.com/embed/dinia_m0HGE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
-
-        <div class="content-box">
-            <div class="title"><div>[D-day]</div><div>Cherry Blossom</div></div>
-            <div class="blossom-time"></div>
-        </div>
-
-
-
-        <div class="img-box">
-            <script src="bg.js"></script>
-            <div class="js-weather">
-                <div class="weather-title">⛅ Weather information</div>
-                <div class="weather-content">
-                    <div class="js-weather__main">
-                        Weather : 로딩중...
-                    </div>
-                    <div class="js-weather__temp">
-                        Temperature : 로딩중...
-                    </div>
-                    <div class="js-weather__description">
-                        Description : 로딩중...
-                    </div>
-                    <div class="js-weather__humidity">
-                        Humidity : 로딩중...
-                    </div>
-                    <div class="js-weather__location">
-                        Location : 로딩중...
+            <div class="right-box">
+                <div class="content-box">
+                    <div class="cb-title"><div>[D-day]</div><div>Cherry Blossom</div></div>
+                    <div class="blossom-time"></div>
+                </div>
+                <div class="img-box">
+                    <script src="bg.js"></script>
+                    <div class="js-weather">
+                        <div class="weather-title">⛅ Weather information</div>
+                        <div class="weather-content">
+                            <div class="js-weather__main">
+                                Weather : 로딩중...
+                            </div>
+                            <div class="js-weather__temp">
+                                Temperature : 로딩중...
+                            </div>
+                            <div class="js-weather__description">
+                                Description : 로딩중...
+                            </div>
+                            <div class="js-weather__humidity">
+                                Humidity : 로딩중...
+                            </div>
+                            <div class="js-weather__location">
+                                Location : 로딩중...
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,5 +276,6 @@
         <div class="snow"></div>
     <script src="weather.js"></script>
     <script src="D-day.js"></script>
+    <script src="toggle.js"></script>
 </body>
 </html>

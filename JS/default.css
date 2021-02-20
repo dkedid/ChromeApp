@@ -7,11 +7,16 @@
     font-size: 600;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     position: relative;
+    left: 0px;
     padding-top: 67px;
     padding-left: 285px;
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    background: #F5FFD9;
+    overflow: hidden;
 }
+
 
 .main-box {
     display: flex;
@@ -217,7 +222,7 @@
 .img-box {
     display: flex;
     justify-content: space-between;
-    margin: 20px 12px;
+    margin: 0px 12px;
     padding: 10px;
     background: linear-gradient(30deg, pink, #ffdab9);
     border-radius: 5px;
@@ -245,40 +250,6 @@
 
 
 
-.js-toDoList {
-    display: flex;
-    flex-direction: column;
-}
-
-.js-toDoList li {
-    background-color: white;
-    border: solid 2px black;
-    padding: 3px;
-    text-align: center;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 10px;
-}
-
-.js-toDoList li:first-child{
-    margin-top: 10px;
-}
-
-.js-toDoList li:last-child{
-    margin-bottom: 100px;
-}
-
-
-.js-toDoList li span {
-    margin: 5px 0px;
-}
-
-.js-toDoList li button {
-    width: 40%;
-    margin: 5px 0px;
-}
 
 .js-weather {
     display: flex;
@@ -333,6 +304,7 @@
     margin: 0px 10px;
     padding: 10px 20px;
     border-radius: 10px;
+    width: 50%;
 }
 
 .music-content {   
@@ -342,4 +314,16 @@
 
 .bgm-content {
     margin-top: 20px;
+}
+
+.big-box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.right-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

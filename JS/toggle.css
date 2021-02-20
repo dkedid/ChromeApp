@@ -2,3 +2,49 @@
     position: absolute;
     left: -200px;
 }
+
+.name-hide {
+    display: none;
+}
+
+.done-toggle {
+    display: none;
+}
+
+.todo-toggle__hide {
+    display: none;
+}
+
+.todo-toggle__show {
+    display: block;
+}
+
+.align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.done-margin {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.done-toggle {
+    position: absolute;
+    top: 47px;
+    background-color: bisque;
+    left: 0px;
+    width: 200px;
+    height: 87%;
+}
+
+.toggle__box {
+    position: relative;
+}
+.todo-list {
+    position: absolute;
+    top: 47px;
+    left: 0px;
+    width: 200px;
+    height: 87%;
+}

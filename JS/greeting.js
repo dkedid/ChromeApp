@@ -1,6 +1,7 @@
-const form = document.querySelector(".js-form");
-const input = form.querySelector("input");
+const JSform = document.querySelector(".js-form");
+const JSinput = JSform.querySelector("input");
 const greeting = document.querySelector(".js-greetings");
+const nameToggleBox = document.querySelector(".name-toggle-box");
 
 const USER_LS = "currentUser",
     SHOWING = "showing";
@@ -12,21 +13,22 @@ function saveName(text) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    const currentValue = input.value;
+    const currentValue = JSinput.value;
     paintGreeting(currentValue);
     saveName(currentValue);
 }
     
 function askName() {
-    form.classList.add(SHOWING);
-    form.addEventListener("submit", handleSubmit);
+    JSform.classList.add(SHOWING);
+    JSform.addEventListener("submit", handleSubmit);
 } 
 
 
 function paintGreeting(text){
-    form.classList.remove(SHOWING);
+    JSform.classList.remove(SHOWING);
     greeting.classList.add(SHOWING);
-    greeting.innerText =`Welcome, ${text} :)`;
+    nameToggleBox.classList.add(SHOWING);
+    greeting.innerText =`${text} #1398 :)`;
 }
 
 

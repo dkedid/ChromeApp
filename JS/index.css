@@ -1,14 +1,13 @@
 .JS-main-box {
+    margin-top: 30px;
+}
+
+.todo-form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: var(--submenu-color);
-    margin: 20px 10px;
-    padding: 10px 5px;
-    padding-top: 10px;
-    background-color: rgba(1,1,1,0.2);
-    border-radius: 15px;
+    margin: 5px 10px;
 }
 
 .js-name-form__input {
@@ -24,7 +23,7 @@
     outline: none;
 }
 
-.form, .greetings {
+.form, .greetings, .name-toggle-box {
     display: none;
 }
 
@@ -46,9 +45,8 @@
     align-items: center;
 }
 
-.js-form {
-    margin: 5px 10px;
-}
+
+
 
 .todo-border {
     border-top: 2px solid rgba(0,0,0,0.35);
@@ -57,6 +55,10 @@
     margin-top: 5px;
     margin-bottom: 10px;
 
+}
+
+.todo-ul-box {
+    text-align: center;
 }
 
 .js-todo{
@@ -70,13 +72,99 @@
 
 }
 
-.js-toDoList li {
+.Pending-ul li, .finished-ul li {
     margin: 10px 0px;
+    background-color: white;
+    border: solid 2px black;
+    padding: 3px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 10px;
 }
+
+
+.Pending-ul, .finished-ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.Pending-ul li:first-child, .finished-ul li:first-child {
+    margin-top: 10px;
+}
+
+.Pending-ul li:last-child, .finished-ul li:last-child {
+    margin-bottom: 100px;
+}
+
+.Pending-ul li span, .finished-ul li span {
+    margin: 5px 0px;
+}
+
+.Pending-ul li button, .finished-ul li button {
+    width: 30%;
+    margin: 5px 0px;
+}
+
+
 
 
 .js-greetings {
     font-size: 15px;
     font-weight: 600;
     padding: 5px 10px;
+}
+
+
+/* name box */
+.name-box {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: #eed0c5;
+    width:180px;
+    height: 38px;
+    padding: 10px 10px;
+    padding-bottom: 22px;
+    top: 845px;
+    left: 85px;
+}
+
+.name-box__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 3px;
+}
+
+.name-box__online {
+    background-color: #FFD2C4;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    left: 38px;
+    top: 35px;
+    margin-top: 3px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #43b483;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+.name-box_patch {
+    position: absolute;
+    width: 1000%;
+    height: 10px;
+    background: linear-gradient(10deg,  #FFB7C5, #ffdab9, #ffdab9, #ffdab9, #FFB7C5);
+    bottom:0px;
+    left: 0px;
 }

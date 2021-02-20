@@ -1,97 +1,232 @@
-const toDoForm = document.querySelector(".js-toDoForm"),
-    toDoInput = toDoForm.querySelector("input"),
-    toDoList = document.querySelector(".js-toDoList"),
-    toDoAnchor = document.querySelector("#toDoAnchor");
-
-const TODOS_LS = 'toDos';
-
-
-/*To Do Anchor*/
-function inOut(){
-    //continue
-}
-
-toDoAnchor.addEventListener("clicked", inOut);
+/* Form태그 */
+const toDoForm = document.querySelector(".todo-form");
+/* input태그 */
+const input = toDoForm.querySelector("input");
+/* html의 ul태그 변수 선언 */
+const pendingUl = document.querySelector(".Pending-ul");
+const finishedUl = document.querySelector(".finished-ul");
+/* LocalStorage에 사용되는 변수 */
+const PENDING_LS = "pendingList";
+const FINISHED_LS = "finishedList";
 
 
 
 
-let toDos = [];
-
-function filterFn(toDo) {
-    return toDo.id === 1;
-}
+/* toDoForm태그에 이벤트리스너 submit발생시 handleData실행 */
+toDoForm.addEventListener("submit", handleData);
 
 
-
-function deleteToDo(event) {
-    /* 누른 버튼 확인 */
-    const btn = event.target;
-    /* 누른 버튼에 대한 부모 확인(∵부모에 id를 부여) */
-    const li = btn.parentNode;
-    /*해당 버튼 삭제*/
-    toDoList.removeChild(li);
-    const cleanToDos = toDos.filter(function(toDo){
-         return toDo.id !== parseInt(li.id);
-    });
-    
-    console.log(cleanToDos, toDos);
-    toDos = cleanToDos;
-    saveToDos();
-}
-
-
-
-
-/* paintToDo에서 생성한 li들을 Local Storage에 저장하는 함수*/
-function saveToDos(){
-    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
-}
-
-function paintToDo(text) {
-    const li = document.createElement("li");
-    const delBtn = document.createElement("button"); 
-    delBtn.innerHTML = "🗑️";
-    delBtn.addEventListener("click", deleteToDo); 
-    const span = document.createElement("span");
-    const newId = toDos.length + 1;
-    span.innerText = `${text}`;
-    li.appendChild(span);
-    li.appendChild(delBtn);
-    li.id = newId;
-    toDoList.appendChild(li);
-    const toDoObj = {
-        text: text,
-        id: toDos.length + 1
-    }
-    toDos.push(toDoObj);
-    saveToDos();
-}
-
-function handleSubmit(event) {
+/* hadleData 함수 */
+function handleData(event){
+    /* submit 이벤트 발생시 새로고침 되는 것 방지 */
     event.preventDefault();
-    const currentValue = toDoInput.value;
-    paintToDo(currentValue);
 
-    /* 여기까지 작성하면 엔터를 눌러 submit을 해도 기존 value가 남아있는 현상이 있음. 그래서 추가해주는 것이 아래 코드.*/
-    toDoInput.value="";
+    /* 현재 submit한 값 따오기*/
+    const submitValue = input.value;
 
+    /* 그 값 리스트에 추가 후 html구현하는 함수 - 1)*/
+    paintPending(submitValue);
+
+    /* submit하고 입력한 value값 안사라지고 남아있는거 방지. input의 value를 지우는 것이기 때문에 반드시 마지막에 두어야 함.*/
+    input.value="";
 }
 
 
-function loadToDos() {
-    const loadedToDos = localStorage.getItem(TODOS_LS);
-    if (loadedToDos !== null) {
-        const parsedToDos = JSON.parse(loadedToDos);
-        parsedToDos.forEach(function(toDo) {
-        paintToDo(toDo.text);
+
+/* 그 값 리스트에 추가 후 html구현하는 함수 - 1) 변수는 handleData에서 submit한 text임 */
+let pendingList = [];
+let finishedList = [];
+
+
+
+
+/* 일단 얘는 Input -> Pending으로 넘어가는 애임. */
+function paintPending(submitValue){
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+
+    /* Finish 버튼 추가 및 이벤트리스너 */
+    const finBtn = document.createElement("button");
+    finBtn.innerText = "🗸"
+    finBtn.addEventListener("click", finishFunc);
+
+    /* Delete 버튼 추가 및 이벤트리스너 */
+    const delBtn = document.createElement("button");
+    delBtn.innerText = "🗑️"
+    delBtn.addEventListener("click", PendDelFunc);
+
+    const pendingId = pendingList.length + 1;
+    
+    /* submitValue(사용자가 input에 적은 값)그대로 return */
+    span.innerText = `${submitValue}`;
+    
+    /* li 자체가 document.createElement("li");이기 때문에 li를 써도 리스트가 만들어짐.  append로 자식 태그 추가해주면 됨. */
+    li.appendChild(span);
+    li.appendChild(finBtn);
+    li.appendChild(delBtn);
+    li.id = pendingId;
+
+    /* pendingList에 추가. 현재 이 list는 모든 정보들이 저장된 리스트임 */
+    pendingUl.appendChild(li);
+    /* Object화 해서 저장. */
+    const pendingObj = {
+        text: submitValue,
+        id: pendingList.length + 1
+    }
+
+    /* pendingList에 Object를 push하고 그것을 저장. */
+    pendingList.push(pendingObj);
+    savePendings();
+}
+
+/* 저장하는 함수 */
+function savePendings(){
+    localStorage.setItem(PENDING_LS, JSON.stringify(pendingList));
+}
+
+
+
+
+
+/* 36, 41번째 줄에 들어가는 finishFunc, delFunc구현 */
+function finishFunc(event){
+    const targetBtn = event.target;
+    const targetLi = targetBtn.parentNode;
+    pendingUl.removeChild(targetLi);
+
+    /* pending_LS 업데이트 */
+    const cleanPendings = pendingList.filter(function(pending){
+        return pending.id !== parseInt(targetLi.id);
+    });
+    pendingList = cleanPendings;
+    savePendings();
+
+    saveFinished();
+    paintFinished(targetBtn.parentNode.firstChild.innerText);
+}
+
+
+
+
+function paintFinished(text) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+
+    const backBtn = document.createElement("button"); 
+    backBtn.innerText = "↩️"
+    backBtn.addEventListener("click", backfunc);
+
+    const delBtn = document.createElement("button");
+    delBtn.innerText = "🗑️"
+    delBtn.addEventListener("click", delFinished);
+
+    const finishedId = finishedList.length + 1;
+
+    span.innerText = `${text}`;
+
+    li.appendChild(span);
+    li.appendChild(backBtn);
+    li.appendChild(delBtn);
+    li.id = finishedId;
+    finishedUl.appendChild(li);
+
+    const finishedObj = {
+        text: text,
+        id: finishedList.length + 1
+    }
+
+    /* finishedList에 Object를 push하고 그것을 저장. */
+    finishedList.push(finishedObj);
+    saveFinished();
+}
+
+function delFinished(event){
+    const targetBtn = event.target;
+    const targetLi = targetBtn.parentNode;
+    finishedUl.removeChild(targetLi);
+    
+    const cleanFinished = finishedList.filter(function(finished){
+        return finished.id !== parseInt(targetLi.id);
+    });
+    finishedList = cleanFinished;
+    saveFinished();   
+}
+
+
+
+
+function saveFinished(){
+    localStorage.setItem(FINISHED_LS, JSON.stringify(finishedList));
+}
+
+
+function backfunc(event){
+    const targetBtn = event.target;
+    const targetLi = targetBtn.parentNode;
+    finishedUl.removeChild(targetLi);
+
+    const cleanFinished = finishedList.filter(function(finished){
+        return finished.id !== parseInt(targetLi.id);
+    });
+    finishedList = cleanFinished;
+    saveFinished();   
+
+    savePendings();
+    paintPending(targetBtn.parentNode.firstChild.innerText);
+}
+
+
+
+/* Pending ul태그에서 자식 삭제 아마 finished 전용 del함수도 짜야할듯 */
+function PendDelFunc(event){
+    /* 수 많은 버튼 중 어느 버튼 눌렸나 확인. */
+    const targetBtn = event.target;
+    /* 누른 버튼은 li로 둘러쌓여진 자식태그이기 때문에 target이 들어있는 target의 부모(li) 확인 */
+    const targetLi = targetBtn.parentNode;
+    /* Pending ul태그에서 자식 삭제*/
+    pendingUl.removeChild(targetLi);
+    
+    const cleanPendings = pendingList.filter(function(pending){
+        return pending.id !== parseInt(targetLi.id);
+    });
+    pendingList = cleanPendings;
+    savePendings();
+}
+
+
+
+
+
+
+/* finished -> pending 롤백 버튼 pending -> finished 뒤집기만 하면 될 듯 , finished del 버튼 */
+
+function loadPending() {
+    const loadedPending = localStorage.getItem(PENDING_LS);
+    if (loadedPending !== null) {
+        const parsedPendings = JSON.parse(loadedPending);
+        parsedPendings.forEach(function(pending) {
+            paintPending(pending.text);
         });
     }
 }
 
-function init() {
-    loadToDos();
-    toDoForm.addEventListener("submit", handleSubmit);
+function loadFinished() {
+    const loadedFinished = localStorage.getItem(FINISHED_LS);
+    if (loadedFinished !== null) {
+        const parsedFinished = JSON.parse(loadedFinished);
+        parsedFinished.forEach(function(finished) {
+            paintFinished(finished.text);
+        });
+    }
+}
+
+
+
+
+function init(){
+    loadPending();
+    loadFinished();
+    toDoForm.addEventListener("submit", handleData);
 }
 
 init();
