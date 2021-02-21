@@ -3,26 +3,45 @@
     background-color: var(--mainbox-color);
     color: rgba(0,0,0,0.7);
     font-weight: 600;
-    height: 100%;
     font-size: 600;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     position: relative;
     left: 0px;
-    padding-top: 67px;
-    padding-left: 285px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     background: #F5FFD9;
     overflow: hidden;
 }
+.t-box {
+    display: flex;
+    margin-left: 290px;
+    margin-top: 67px;
+    height: 80%;
+    width: 65%;
+}
 
+.cb-box {
+    position: absolute;
+    z-index: -2;
+    background-image: url("data/data2/23.gif");
+    background-repeat: no-repeat;
+    margin-left: 290px;
+    margin-top: 67px;
+    height: 80%;
+    width: 65%;
+    border-radius: 10px;
+    display: flex;
+
+}
 
 .main-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    width: 100%;
 }
 
 .header {
@@ -143,10 +162,12 @@
     padding: 5px 10px;
     border-radius: 5px;
     display: flex;
+    transition: 0.2s ease-in-out;
 }
 
 .clock-box:hover, .clock-box:focus{
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.8);
+    color: white;
     
 }
 
@@ -219,6 +240,19 @@
     box-sizing: border-box;
 }
 
+.right-box__column {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.left-box__column {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
 .img-box {
     display: flex;
     justify-content: space-between;
@@ -228,6 +262,7 @@
     border-radius: 5px;
     width: 600px;
     height: 250px;
+    margin-bottom: 20px;
 }
 
 
@@ -295,6 +330,9 @@
 
 /* music-box*/
 
+
+
+
 .music-box{
     display: flex;
     flex-direction: column;
@@ -304,12 +342,13 @@
     margin: 0px 10px;
     padding: 10px 20px;
     border-radius: 10px;
-    width: 50%;
+    width: 500px;
 }
 
 .music-content {   
     border-radius: 10px;
     box-shadow: none;
+    margin-top: 40px;
 }
 
 .bgm-content {
@@ -320,10 +359,13 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    height: 100%;
 }
 .right-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
 }

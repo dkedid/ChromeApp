@@ -2,11 +2,13 @@
 
 .snow {
   position: absolute;
+  top: 0px;
+  left: 130px;
   width: 3px;
   height: 2px;
   background: rgb(235, 42, 123);
   border-radius: 50%;
-  box-shadow: 0px 0px 2px 1px rgb(235, 42, 123);
+  box-shadow: 0px 0px 2px 1px rgb(241, 73, 143);
   z-index: -1;
 }
 .snow:nth-child(1) {

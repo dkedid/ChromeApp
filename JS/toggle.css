@@ -8,15 +8,35 @@
 }
 
 .done-toggle {
-    display: none;
+    visibility: hidden;
 }
 
 .todo-toggle__hide {
-    display: none;
+    visibility: hidden;
+    animation: 0.2s motion-off linear;
 }
 
 .todo-toggle__show {
-    display: block;
+    visibility: visible;
+    animation: 0.2s motion-on linear;
+}
+
+@keyframes motion-on {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes motion-off {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .align {

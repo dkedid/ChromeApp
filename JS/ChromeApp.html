@@ -18,7 +18,7 @@
         </div>
         <div class="menu-box">
             <ul class="menu-box__menu-box">
-                <a class="menu__a-box" target="_blank" href="https://comic.naver.com/webtoon/detail.nhn?titleId=671270&no=1&weekday=fri">
+                <a class="menu__a-box" target="_blank" href="https://nomadcoders.co/">
                     <li>
                         <img class="menu-box__img menu-box__menu-box__now" src="data/data2/3.JPG">
                     </li>
@@ -28,30 +28,44 @@
 
                 <a class="menu__a-box todo-anchor" href="#">
                     <li>
-                        <img class="menu-box__img" src="https://image.bugsm.co.kr/album/images/350/200268/20026817.jpg">
+                        <img class="menu-box__img"  src="https://image.bugsm.co.kr/album/images/350/200268/20026817.jpg">
                     </li>
                     <div class="menu-box__text">Done</div>
                 </a>
 
-                <a class="menu__a-box" href="#">
+                <a class="menu__a-box bgm-anchor" onclick="bgm1.play();" href="#">
                     <li>
                         <img class="menu-box__img" src="data/8.jpg">
                     </li>
-                    <div class="menu-box__text">Weather</div>
+                    <div class="menu-box__text">BGM <i class="far fa-play-circle"></i></div>
                 </a>
 
                 <a class="menu__a-box" href="#">
                     <li>
-                        <img class="menu-box__img" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/10660119_538318523006555_1971549971222895643_n.jpg?_nc_cat=111&ccb=2&_nc_sid=2d5d41&_nc_ohc=VWi6jtZv2joAX9Z0GFl&_nc_ht=scontent-ssn1-1.xx&oh=fc59bca8fd009a45c82e3afef50629bf&oe=604636E0">
+                        <img class="menu-box__img" onclick=" bgm1.pause();" src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.0-9/10660119_538318523006555_1971549971222895643_n.jpg?_nc_cat=111&ccb=2&_nc_sid=2d5d41&_nc_ohc=VWi6jtZv2joAX9Z0GFl&_nc_ht=scontent-ssn1-1.xx&oh=fc59bca8fd009a45c82e3afef50629bf&oe=604636E0">
                     </li>
-                    <div class="menu-box__text">menu3</div>
+                    <div class="menu-box__text">BGM <i class="fas fa-pause"></i></div>
+                </a>
+
+                <a class="menu__a-box" target="_blank" href="https://comic.naver.com/webtoon/list.nhn?titleId=671270&no=2&weekday=fri">
+                    <li>
+                        <img class="menu-box__img" src="data/23.JPG">
+                    </li>
+                    <div class="menu-box__text">Webtoon</i></div>
+                </a>
+
+                <a class="menu__a-box" href="https://www.google.co.kr/" target="_blank">
+                    <li>
+                        <img class="menu-box__img" src="data/11.JPG">
+                    </li>
+                    <div class="menu-box__text">Google</div>
                 </a>
 
             </ul>
             <div class="submenu">
                 <div class="submenu-box">
                     <div class="submenu-box__title">
-                        <div>📖 To Do List ! !</div><a id = toDoAnchor href="#"><i class="fas fa-chevron-down fa-sm"></i></a>
+                        <div>📖 To Do List ! !</div><a id = toDoAnchor href="#" onclick="paintDone();"><i class="fas fa-chevron-down fa-sm"></i></a>
                     </div>
                     <div class="toggle-box">
                         <div class="todo-list">
@@ -120,48 +134,49 @@
 
 
 
-
-
-    <div class="main-box">
-        <div class="JS-main-box">
-            <form class="js-form form">
-                <input class="js-input" type="text" placeholder="What is your name?">
-            </form>
-            <h4 class="js-greetings greetings"></h4>
-            <script src="clock.js"></script>
-            <script src="greeting.js"></script>
-            <script src="todo.js"></script>
-        </div>
-        <div class="big-box">
-            <div class="music-box">
-                <audio class="bgm-content" controls loop autoplay width="100" height="50" src="data/bgm/Fallen in LoveOnly With You.mp3">Music Error!</audio>
-                <iframe class = "music-content" width="450" height="250" src="https://www.youtube.com/embed/dinia_m0HGE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- Contents -->
+    <div class="cb-box"></div>
+    <div class="t-box">
+        <div class="main-box">
+            <div class="JS-main-box">
+                <form class="js-form form">
+                    <input class="js-input" type="text" placeholder="What is your name?">
+                </form>
+                <h4 class="js-greetings greetings"></h4>
+                <script src="clock.js"></script>
+                <script src="greeting.js"></script>
+                <script src="todo.js"></script>
             </div>
-
-            <div class="right-box">
-                <div class="content-box">
-                    <div class="cb-title"><div>[D-day]</div><div>Cherry Blossom</div></div>
-                    <div class="blossom-time"></div>
-                </div>
-                <div class="img-box">
-                    <script src="bg.js"></script>
-                    <div class="js-weather">
-                        <div class="weather-title">⛅ Weather information</div>
-                        <div class="weather-content">
-                            <div class="js-weather__main">
-                                Weather : 로딩중...
-                            </div>
-                            <div class="js-weather__temp">
-                                Temperature : 로딩중...
-                            </div>
-                            <div class="js-weather__description">
-                                Description : 로딩중...
-                            </div>
-                            <div class="js-weather__humidity">
-                                Humidity : 로딩중...
-                            </div>
-                            <div class="js-weather__location">
-                                Location : 로딩중...
+            <div class="big-box">
+                <div class="right-box">
+                    <div class="right-box__column">
+                        <div class="content-box">
+                            <div class="cb-title"><div>[D-day]</div><div>Cherry Blossom</div></div>
+                            <div class="blossom-time"></div>
+                        </div>
+                    </div>
+                    <div class="left-box__column">
+                        <div class="img-box">
+                            <script src="bg.js"></script>
+                            <div class="js-weather">
+                                <div class="weather-title">⛅ Weather information</div>
+                                <div class="weather-content">
+                                    <div class="js-weather__main">
+                                        Weather : 로딩중...
+                                    </div>
+                                    <div class="js-weather__temp">
+                                        Temperature : 로딩중...
+                                    </div>
+                                    <div class="js-weather__description">
+                                        Description : 로딩중...
+                                    </div>
+                                    <div class="js-weather__humidity">
+                                        Humidity : 로딩중...
+                                    </div>
+                                    <div class="js-weather__location">
+                                        Location : 로딩중...
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -277,5 +292,6 @@
     <script src="weather.js"></script>
     <script src="D-day.js"></script>
     <script src="toggle.js"></script>
+    <script src="bgm.js"></script>
 </body>
 </html>

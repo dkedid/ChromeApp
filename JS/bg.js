@@ -1,5 +1,5 @@
 const body = document.querySelector(".img-box");
-const IMG_NUMBER = 8;
+const IMG_NUMBER = 31;
 
 function paintImage(imgNumber) {
     const image = new Image();
