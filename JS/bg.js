@@ -3,7 +3,7 @@ const IMG_NUMBER = 31;
 
 function paintImage(imgNumber) {
     const image = new Image();
-    image.src = `C:/vs/kokoa-clone-2021/ChromeApp/JS/data/${imgNumber + 1}.jpg`;
+    image.src = `./data/${imgNumber + 1}.jpg`;
     image.classList.add("img-box__img");
     body.prepend(image);
 }
