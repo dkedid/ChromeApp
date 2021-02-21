@@ -33,11 +33,10 @@
 
 .js-input {
     padding: 15px 30px;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     border-radius: 5px;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
-    background: linear-gradient(30deg, pink, pink,  bisque,bisque,  bisque);
     text-align: center;
     font-weight: 600;
 }
